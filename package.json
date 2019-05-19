@@ -1,0 +1,8 @@
+{
+  "name": "backend-test-tiendeo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/rmyz/backend-test-tiendeo.git",
+  "author": "Sergi Romeu <romeuhd@gmail.com>",
+  "license": "MIT"
+}
