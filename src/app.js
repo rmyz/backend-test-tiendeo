@@ -12,6 +12,10 @@ const rl = readline.createInterface({
   prompt: "CONSOLE> "
 });
 
+const handleInvalid = () => {
+  console.log("Input is not valid, please enter a valid input");
+};
+
 let mode = 0;
 let limits;
 let initialPosition;
@@ -25,17 +29,31 @@ rl.on("line", line => {
   switch (mode) {
     case 0:
       limits = inputLimits(line);
+
+      if (!limits) {
+        handleInvalid();
+        break;
+      }
+
       mode++;
       console.log("Enter the drone starting position and orientation");
       break;
     case 1:
       initialPosition = startingPosition(limits, line);
+
+      if (!initialPosition) {
+        handleInvalid();
+        break;
+      }
+
       mode++;
       console.log("Enter the commands to be executed by the drone");
       break;
     case 2:
       actualDrone = commands(initialPosition, limits, line);
+
       drones.push(actualDrone);
+
       mode--;
       console.log("Enter the drone starting position and orientation");
       break;
@@ -46,5 +64,6 @@ rl.on("line", line => {
 }).on("close", () => {
   console.log("\n");
   printDrone(drones);
+
   process.exit(0);
 });

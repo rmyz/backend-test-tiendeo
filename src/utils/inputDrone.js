@@ -14,8 +14,8 @@ const startingPosition = (limits, drone) => {
     if (y < -limits.x) y = -limits.y;
 
     return { x, y, orientation };
-  } catch (error) {
-    console.error(error);
+  } catch {
+    return undefined;
   }
 };
 
@@ -41,8 +41,8 @@ const commands = (drone, limits, commands) => {
     });
 
     return _drone;
-  } catch (error) {
-    console.error(error);
+  } catch {
+    return undefined;
   }
 };
 

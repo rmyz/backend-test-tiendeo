@@ -5,7 +5,7 @@ module.exports = function(drones) {
         `A drone has returned home, last position registered was [${x},${y}] {${orientation}}`
       );
     });
-  } catch (error) {
-    console.error(error);
+  } catch {
+    return undefined;
   }
 };

@@ -10,7 +10,7 @@ module.exports = function(limits) {
       };
 
     return undefined;
-  } catch (error) {
-    console.error(error);
+  } catch {
+    return undefined;
   }
 };

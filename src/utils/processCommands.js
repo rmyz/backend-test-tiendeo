@@ -20,8 +20,8 @@ const changeOrientation = (drone, orientation) => {
       default:
         break;
     }
-  } catch (error) {
-    console.error(error);
+  } catch {
+    return undefined;
   }
 };
 
@@ -46,8 +46,8 @@ const move = (limits, drone) => {
     }
 
     return _drone;
-  } catch (error) {
-    console.error(error);
+  } catch {
+    return undefined;
   }
 };
 
