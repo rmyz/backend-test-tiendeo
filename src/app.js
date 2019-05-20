@@ -44,6 +44,7 @@ rl.on("line", line => {
   }
   rl.prompt();
 }).on("close", () => {
+  console.log("\n");
   printDrone(drones);
   process.exit(0);
 });

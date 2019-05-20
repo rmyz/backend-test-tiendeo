@@ -3,9 +3,9 @@ const { changeOrientation, move } = require("./processCommands");
 const startingPosition = (limits, drone) => {
   const _drone = drone.split(" ");
 
-  let x = _drone[0];
-  let y = _drone[1];
-  const orientation = _drone[2];
+  let x = Number(_drone[0]);
+  let y = Number(_drone[1]);
+  const orientation = _drone[2].toUpperCase();
 
   if (x > limits.x) x = limits.x;
   if (x < -limits.x) x = -limits.x;
@@ -17,18 +17,18 @@ const startingPosition = (limits, drone) => {
 
 const commands = (drone, limits, commands) => {
   const _commands = commands.replace(/\s+/g, "").split("");
-  let _drone;
+  let _drone = drone;
 
   _commands.map(command => {
     switch (command.toUpperCase()) {
       case "L":
-        _drone = changeOrientation(drone, "L");
+        _drone = changeOrientation(_drone, "L");
         break;
       case "R":
-        _drone = changeOrientation(drone, "R");
+        _drone = changeOrientation(_drone, "R");
         break;
       case "M":
-        _drone = move(limits, drone);
+        _drone = move(limits, _drone);
         break;
       default:
         break;

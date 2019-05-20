@@ -1,7 +1,7 @@
 module.exports = function(drones) {
-  drones.map(({ x, y, orientation }) => {
+  drones.map(({ x = 0, y = 0, orientation = "" }) => {
     console.log(
-      `A drone has returned home, last position registered ${x} ${y} with an orientation of ${orientation}`
+      `A drone has returned home, last position registered was [${x},${y}] {${orientation}}`
     );
   });
 };
